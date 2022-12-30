@@ -4,15 +4,9 @@ package com.kruger.microservice.controller;
 import com.kruger.microservice.model.FootBallPlayer;
 import com.kruger.microservice.model.service.FootballPlayerService;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
-import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.info.License;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,24 +32,7 @@ public class FootballPlayerController {
 	@Autowired
 	private FootballPlayerService service;
 
-	@Operation(
-			summary = "Find all members",
-			description = "Find all members",
-			tags = "member"
-	)
-	@ApiResponses(
-			value = {
-					@ApiResponse(
-							responseCode = "200",
-							description = "successful operation",
-							content = @Content(
-									array = @ArraySchema(
-											schema = @Schema(implementation = FootBallPlayer.class)
-									)
-							)
-					)
-			}
-	)
+
 	@RequestMapping(value = "/all",method=RequestMethod.GET, produces="application/json" )
 	public Iterable<FootBallPlayer> findAll(){
 		return service.findAll();
