@@ -1,28 +1,38 @@
 package com.kruger.microservice.controller;
 
 
-import java.util.Optional;
-
+import com.kruger.microservice.model.FootBallPlayer;
+import com.kruger.microservice.model.service.FootballPlayerService;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.info.Contact;
+import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.info.License;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.kruger.microservice.model.FootBallPlayer;
-import com.kruger.microservice.model.service.FootballPlayerService;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/footballplayer")
-@Tag(name = "member", description = "The member API")
+@OpenAPIDefinition(info = @Info(title = "Footbal Player API",
+		description = "API for creating football player",
+		version = "1.0",
+		contact = @Contact(
+				name = "Edwin",
+				email = "miguepinchao1992@gmail.com",
+				url = "https://github.com/Edwin9226"
+		),
+		license = @License(
+				name = "MIT Licence",
+				url = "https://opensource.org/licenses/mit-license.php"
+		)
+))
 public class FootballPlayerController {
 	
 	@Autowired

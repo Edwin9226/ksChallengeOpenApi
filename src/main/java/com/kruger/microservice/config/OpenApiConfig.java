@@ -19,9 +19,9 @@ public class OpenApiConfig implements WebMvcConfigurer {
 
     private Info apiInfo() {
         return new Info()
-                .title("Human cloning API")
-                .description("API for creating clone who will fight in the clones wars")
-                .version("2.0")
+                .title("Football Player ")
+                .description("API for creating football player")
+                .version("1.0")
                 .contact(apiContact())
                 .license(apiLicence());
     }
@@ -34,9 +34,9 @@ public class OpenApiConfig implements WebMvcConfigurer {
 
     private Contact apiContact() {
         return new Contact()
-                .name("Erwan LE TUTOUR")
-                .email("erwanletutour.elt@gmail.com")
-                .url("https://github.com/ErwanLT");
+                .name("Edwin KS")
+                .email("miguepinchao1992@gmail.com")
+                .url("https://github.com/Edwin9226");
     }
 
 }
