@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.info.License;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,21 +28,25 @@ import java.util.Optional;
 				url = "https://opensource.org/licenses/mit-license.php"
 		)
 ))
+@Tag(name = "FootballPlayer")
 public class FootballPlayerController {
 	
 	@Autowired
 	private FootballPlayerService service;
 
-
+@Tag(name="FootballPlayer", description = "Find all FootballPalayer ")
 	@RequestMapping(value = "/all",method=RequestMethod.GET, produces="application/json" )
 	public Iterable<FootBallPlayer> findAll(){
 		return service.findAll();
 	}
+
+	@Tag(name="Save FootballPalayer", description = "Save FootballPalayer ")
 	@RequestMapping(value="/save", method=RequestMethod.POST)
 	public FootBallPlayer save(@RequestBody FootBallPlayer entity) {
 
 		return service.save(entity);
 	}
+	@Tag(name="Update FootballPalayer",  description = "Update FootballPalayer ")
 	@RequestMapping(value = "/update/{id}",method=RequestMethod.PUT, produces="application/json" )
 	public FootBallPlayer edit(@PathVariable Integer id, @RequestBody FootBallPlayer entity) {
 		Optional<FootBallPlayer> footBallPlayer=service.findById(id);
